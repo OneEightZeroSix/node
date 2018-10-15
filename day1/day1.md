@@ -101,4 +101,50 @@ PHP能做的，Node也能做
 
 其他模块参考 [node官网内置模块API文档](https://nodejs.org/dist/latest-v8.x/docs/api/)
 
+### HTTP
+
+http超文本传输协议
+前端最多就是ajax(http协议的一种前端实现方案)  GET/POST
+
+
+|GET|POST|
+|-|-|
+|参数在url上|参数在请求体|
+|有可能有长度|没长度限制|
+|不安全|安全|
+
+
+|状态码||
+|-|-|
+|1xx|开始执行|
+|2xx|成功|
+|3xx|重定向|
+|4xx|客户端错误,浏览器端|
+|5xx|服务端|
+
+apache(wamp集成环境)+php
+
+```
+window
+apache
+mysql
+php
+```
+
+### 创建服务器
+
+```js
+var http = require('http');
+console.log(http);
+var server = http.createServer(Function(request,response){
+	response.end("hello world");
+})
+server.listen(12345);//(0,65535)
+console.log("启动服务器");
+```
+出现跨域，加一个头部来解决
+```php
+header("Access-Control-Allow-Origin:*")
+```
+
 # 第三方模块

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input id="u" type="text" />
+		<input id="p" type="password" />
+		<button id="login">登录</button>
+		<script src="../../../js/jquery.js"></script>
+		<script>
+			$("#login").click(function() {
+				$.ajax({
+					type: "GET",
+					data: {
+						username: $("#u").val(),
+						password: $("#p").val()
+					},
+					url: "http://localhost:12345/",
+					success: function(data) {
+						console.log(data)
+					}
+				})
+			})
+
+			$.ajax({
+				type: "GET",
+				data: {
+					username: 1,
+					password: 2
+				},
+				url: "http://localhost:12345/",
+				success: function(data) {
+					console.log(data)
+				}
+			})
+		</script>
+	</body>
+
+</html>
