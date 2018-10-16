@@ -148,3 +148,47 @@ header("Access-Control-Allow-Origin:*")
 ```
 
 # 第三方模块
+
+我们可以从[npm](https://www.npmjs.com/)包管理中心去下载一些第三方包（别人写好传上去的），去在本地node平台实现自己的一些功能
+
+安装第三方包模块
+
+gulp就是一个常用的第三方模块
+
+### 安装
+
+```bash
+npm install xxx(gulp) -g
+npm i
+```
+
+建议安装`cnpm`替代`npm`,在命令行上输入以下代码安装
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
+除了全局安装之外，安装任何包都会在该目录下`node_modules`，你的包就会被安装在该文件夹下
+这个文件夹不要传到svn和git服务器上，以后你移植这个项目的时候不要把`node_modules`，只要
+用`package.json`描述文件去代替它，这份文件记录着你开发node的一些关键信息，比如你安装过什么模块作为依赖
+
+
+### 卸载
+
+```bash
+npm uninstall xxx  //卸载某个模块
+npm uninstall //全部卸载
+```
+
+### 初始化
+
+生成一份`package.json`描述文件
+```bash
+npm init
+```
+
+## 使用第三方模块
+
+```js
+var request = require('request');
+var gulp = require('gulp');
+```
