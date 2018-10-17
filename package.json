@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -68,3 +68,27 @@ app.use('/test', homeRouter);
 ```js
 http://localhost:3000/test/home
 ```
+
+
+# mysql
+
+连接数据库
+
+//select * from students where username = 
+```js
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'lemon',
+	password: '123456',
+	database: '1806'
+});
+connection.query('INSERT INTO students SET ?', [{
+	username: req.body.username,
+	password: req.body.password
+}], function(error, results, fields) {
+	if(error) throw error;
+	res.send("success");
+});
+connection.end();
+```
