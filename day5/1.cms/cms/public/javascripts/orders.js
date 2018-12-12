@@ -1,0 +1,18 @@
+$("#addProduct").click(function(){
+	$.ajax({
+		type:"post",
+		url:"http://localhost:3000/product/addproduct",
+		async:true,
+		data:{
+			firstname:$("#validationServer01").val(),
+			lastname:$("#validationServer02").val(),
+			username:$("#validationServerUsername").val(),
+			city:$("#validationServer03").val(),
+			state:$("#validationServer04").val(),
+			zip:$("#validationServer05").val()
+		},
+		success:function(data){
+			console.log(data)
+		}
+	});
+})

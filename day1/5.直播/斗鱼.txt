@@ -1,0 +1,13 @@
+1.拿到弹幕内容
+$(".dm-item").eq(1).text();
+2.把弹幕的内容发到node后端并进行记录
+$.ajax({
+	type: "GET",
+	data: {
+		message: $(".dm-item").eq(0).text(),
+	},
+	url: "http://localhost:12345/",
+	success: function(data) {
+		console.log(data)
+	}
+})

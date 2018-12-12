@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="./javascripts/jquery.js"></script>
+		<input type="text" id="username" />
+		<input type="password" id="password" />
+		<button id="login">登录</button>
+		<script>
+			$("#login").click(function(){
+				$.ajax({
+					type:"post",
+					data:{
+						username:$("#username").val(),
+						password:$("#password").val()
+					},
+					url:"http://localhost:3000/test/live",
+					async:true,
+					success:function(data){
+						console.log(data)
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

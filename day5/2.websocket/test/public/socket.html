@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="message"></textarea>
+		<button id="send">发送</button>
+		<ul id="messageList"></ul>
+		<script src="javascripts/socket.io.js"></script>
+		<script src="javascripts/jquery.js"></script>
+		<script>
+//			<p>123<span style ='color:red'>456</span>789<script>alert(1)</script></p>
+			var socket = io('http://10.3.132.19:3001');
+			socket.on('connect', function() {});
+			socket.on('event', function(data) {});
+			socket.on('disconnect', function() {});
+			//监听
+			socket.on('sendMessageToAllClient', function(data) {
+				console.log(data);
+				$("#messageList").append(`
+					<li>${data}</li>	
+				`)
+			});
+			$("#send").click(function(){
+				socket.emit("sendMessageToServer",$("#message").val());
+			})
+		</script>
+	</body>
+</html>

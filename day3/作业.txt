@@ -1,0 +1,26 @@
+1. 酷狗音乐把歌曲写入到数据库，mysql,cheerio
+
+song_name	text
+lyrics	text
+play_url	text
+img	text
+audio_name	text
+author_name	text
+album_name	t
+
+2. 用数据池进行数据库连接操作，并把它模块化
+
+var mysql = require('mysql');
+var pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'example.org',
+  user            : 'bob',
+  password        : 'secret',
+  database        : 'my_db'
+});
+ 
+pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  connection.release();
+  console.log('The solution is: ', results[0].solution);
+});
